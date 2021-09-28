@@ -46,7 +46,6 @@ stages:
       
 - stage: 'Trigger_Dev_Build_AML_Pipeline'
   displayName: 'Trigger_Dev_Build_AML_Pipeline'
-  environment: 'dev'
   condition: succeeded()
   variables:
     BUILD_URI: '$(SYSTEM.COLLECTIONURI)$(SYSTEM.TEAMPROJECT)/_build/results?buildId=$(BUILD.BUILDID)'
