@@ -2,11 +2,28 @@
 variables:
   # Source Config
   # The directory containing the scripts for training, evaluating, and registering the model
+  - name: LOCATION
+    value: eastus2
+    
+   - name: mm-aml-devops-dev-rg
+     value: eastus2
+  
+   - name: WORKSPACE_NAME
+     value: mm-aml-devops-dev
+    
+   - name: AZURE_RM_SVC_CONNECTION
+     value: indevtemplateymlfile
+    
+   - name: ACI_DEPLOYMENT_NAME
+     value: mlops-aci
+    
+
+    
   - name: SOURCES_DIR_TRAIN
-    value: diabetes_regression
+    value: code
     # The path to the model training script under SOURCES_DIR_TRAIN
   - name: TRAIN_SCRIPT_PATH
-    value: training/train_aml.py
+    value: training/train.py
     # The path to the model evaluation script under SOURCES_DIR_TRAIN
   - name: EVALUATE_SCRIPT_PATH
     value: evaluate/evaluate_model.py
@@ -20,7 +37,7 @@ variables:
 
   # Azure ML Variables
   - name: EXPERIMENT_NAME
-    value: mlopspython
+    value: dev-exp-regression
   - name: DATASET_NAME
     value: diabetes_ds
   # Uncomment DATASTORE_NAME if you have configured non default datastore to point to your data
@@ -29,7 +46,7 @@ variables:
   - name: DATASET_VERSION
     value: latest
   - name: TRAINING_PIPELINE_NAME
-    value: "diabetes-Training-Pipeline"
+    value: "demo-Training-Pipeline"
   - name: MODEL_NAME
     value: diabetes_regression_model.pkl
 
@@ -52,22 +69,6 @@ variables:
   # The name for the (docker/webapp) scoring image
   - name: IMAGE_NAME
     value: "diabetestrained"
-
-    # Optional. Used by a training pipeline with R on Databricks
-  - name: DB_CLUSTER_ID
-    value: ""
-
-  # These are the default values set in ml_service\util\env_variables.py. Uncomment and override if desired.
-  # Set to false to disable the evaluation step in the ML pipeline and register the newly trained model unconditionally.
-  # - name: RUN_EVALUATION
-  #   value: "true"
-  # Set to false to register the model regardless of the outcome of the evaluation step in the ML pipeline.
-  # - name: ALLOW_RUN_CANCEL
-  #   value: "true"
-
-  # Flag to allow rebuilding the AML Environment after it was built for the first time. This enables dependency updates from conda_dependencies.yaml.
-  # - name: AML_REBUILD_ENVIRONMENT
-  #  value: "false"
 
   # Variables below are used for controlling various aspects of batch scoring
   - name: USE_GPU_FOR_SCORING
