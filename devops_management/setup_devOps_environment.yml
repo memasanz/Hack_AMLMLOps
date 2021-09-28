@@ -27,11 +27,6 @@ steps:
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
   
-  
-- bash: variable_list = az pipelines variable-group variable list --group-name vgroup-aml-devops-dev --query 'id' -o  json
-  displayName: 'List variables in aml-devops-dev variable group'
-  env:
-    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
     
 - bash: echo "##vso[task.setvariable variable=devVariableGroupId]$(az pipelines variable-group list --group-name vgroup-aml-devops-dev --query [].id -o tsv)"
   env:
