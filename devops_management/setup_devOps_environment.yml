@@ -35,7 +35,7 @@ steps:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
   displayName: 'Get vgroup-aml-devops-dev variable group id'
 
-- bash: az pipelines variable-group variable list --group-id $(devVariableGroupId) --group-name vgroup-aml-devops-dev --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
+- bash: az pipelines variable-group variable list --group-id $(devVariableGroupId) --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
   displayName: 'List variables in vgroup-aml-devops-dev variable group'
@@ -52,7 +52,7 @@ steps:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
   displayName: 'Get vgroup-aml-devops-qa variable group id'
 
-- bash: az pipelines variable-group variable list --group-id $(qaVariableGroupId) --group-name vgroup-aml-devops-qa --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
+- bash: az pipelines variable-group variable list --group-id $(qaVariableGroupId) --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
   displayName: 'List variables in vgroup-aml-devops-qa variable group'
