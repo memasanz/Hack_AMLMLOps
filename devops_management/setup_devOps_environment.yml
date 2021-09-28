@@ -41,5 +41,5 @@ steps:
 - bash: az pipelines variable-group variable list --group-id $(variableGroupId)
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
-  displayName: 'List variables in vgroup-aml-devops-dev variable group
+  displayName: 'List variables in vgroup-aml-devops-dev variable group'
   
