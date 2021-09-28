@@ -28,7 +28,7 @@ stages:
   displayName: 'Build Model in dev'
   jobs:
   - job: "Model_CI_Pipeline"
-    displayName: "Model CI Pipeline"
+    displayName: "dev-Build Model Train Pipe"
     container: mlops
     timeoutInMinutes: 0
     steps:
