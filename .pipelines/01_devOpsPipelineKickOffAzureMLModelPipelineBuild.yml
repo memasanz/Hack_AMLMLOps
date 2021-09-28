@@ -44,7 +44,7 @@ stages:
           python -m ml_service.pipelines.train_evaluate_register_model_in_aml_workspace
       displayName: 'Publish AML Build Pipeline'
       
- - stage: 'Trigger_Dev_Build_AML_Pipeline'
+- stage: 'Trigger_Dev_Build_AML_Pipeline'
   displayName: 'Trigger_Dev_Build_AML_Pipeline'
   condition: succeeded()
   variables:
