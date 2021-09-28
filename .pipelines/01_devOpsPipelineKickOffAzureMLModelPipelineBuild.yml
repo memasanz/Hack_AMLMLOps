@@ -41,5 +41,5 @@ stages:
           set -e # fail on error
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           # Invoke the Python building and publishing a training pipeline
-          python -m ml_service\pipelines\train_evaluate_register_model_in_aml_workspace
+          python -m ml_service.pipelines.train_evaluate_register_model_in_aml_workspace
       displayName: 'Publish Azure Machine Learning Pipeline'
