@@ -27,7 +27,6 @@ stages:
 - stage: 'Build_Training_Pipeline_in_dev'
   displayName: 'Build Pipeline to build Model in dev'
   jobs:
-  environment: 'dev'
   - job: "DEV_Build_Model_Train_Pipe"
     displayName: "dev-Build Model Train Pipe"
     container: mlops
