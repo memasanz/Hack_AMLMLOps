@@ -12,14 +12,13 @@ trigger:
     - master
   paths:
     include:
-    - diabetes_regression/
-    - ml_service/pipelines/diabetes_regression_build_train_pipeline.py
-    - ml_service/pipelines/diabetes_regression_build_train_pipeline_with_r.py
-    - ml_service/pipelines/diabetes_regression_build_train_pipeline_with_r_on_dbricks.py
+    - code/
+    - ml_service/pipelines/train_evaluate_register_model_in_aml_workspace.py
+
 
 variables:
-- template: diabetes_regression-variables-template.yml
-- group: devopsforai-aml-vg
+- template: DEV-devOps-variables-template.yml
+- group: vgroup-aml-devops-dev
 
 pool:
   vmImage: ubuntu-latest
@@ -35,12 +34,12 @@ stages:
     steps:
     - task: AzureCLI@1
       inputs:
-        azureSubscription: '$(DEV_WORKSPACE_SVC_CONNECTION)'
+        azureSubscription: '$(WORKSPACE_SVC_CONNECTION)'
         scriptLocation: inlineScript
         workingDirectory: $(Build.SourcesDirectory)
         inlineScript: |
           set -e # fail on error
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           # Invoke the Python building and publishing a training pipeline
-          python -m aml_management\train_evaluate_register_model_in_aml_workspace
+          python -m ml_service\pipelines\train_evaluate_register_model_in_aml_workspace
       displayName: 'Publish Azure Machine Learning Pipeline'

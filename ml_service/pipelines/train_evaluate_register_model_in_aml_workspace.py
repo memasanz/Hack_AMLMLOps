@@ -3,11 +3,13 @@ from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline, PipelineData
 from azureml.core import Workspace, Dataset, Datastore
 from azureml.core.runconfig import RunConfiguration
-from aml_management.util.attach_compute import get_compute
-from aml_management.util.env_variables import Env
-from aml_management.util.manage_environment import get_environment
+from ml_service.pipelines.load_sample_data import create_sample_data_csv
+from ml_service.util.attach_compute import get_compute
+from ml_service.util.env_variables import Env
+from ml_service.util.manage_environment import 
+
 import os
-#from ml_service.pipelines.load_sample_data import create_sample_data_csv
+
 
 
 def main():
