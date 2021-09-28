@@ -19,7 +19,7 @@ steps:
   
 
   
-- bash: az pipelines variable-group create --name aml-devops-dev --org https://dev.azure.com/memasanz/ --variables LOCATION=eastus2 RESOURCE_GROUP=mm-aml-devops-dev-rg WORKSPACE_NAME=mm-aml-devops-dev WORKSPACE_SVC_CONNECTION=mm-aml-dev-connection
+- bash: az pipelines variable-group create --name aml-devops-dev --org https://dev.azure.com/memasanz/ project=MeganMasanzRepos --variables LOCATION=eastus2 RESOURCE_GROUP=mm-aml-devops-dev-rg WORKSPACE_NAME=mm-aml-devops-dev WORKSPACE_SVC_CONNECTION=mm-aml-dev-connection
   displayName: 'Set Variable Group for dev'
   
   
