@@ -26,6 +26,7 @@ pool:
 stages:
 - stage: 'Build_Training_Pipeline_in_dev'
   displayName: 'Build Model in dev'
+  environment: 'dev'
   jobs:
   - job: "DEV_Build_Model_Train_Pipe"
     displayName: "dev-Build Model Train Pipe"
@@ -46,6 +47,7 @@ stages:
       
 - stage: 'Trigger_Dev_Build_AML_Pipeline'
   displayName: 'Trigger_Dev_Build_AML_Pipeline'
+  environment: 'dev'
   condition: succeeded()
   variables:
     BUILD_URI: '$(SYSTEM.COLLECTIONURI)$(SYSTEM.TEAMPROJECT)/_build/results?buildId=$(BUILD.BUILDID)'
