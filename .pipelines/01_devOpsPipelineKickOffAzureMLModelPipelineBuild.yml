@@ -24,8 +24,8 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: 'Model_CI'
-  displayName: 'Model CI'
+- stage: 'Build Training Pipeline in dev'
+  displayName: 'Build Model in dev'
   jobs:
   - job: "Model_CI_Pipeline"
     displayName: "Model CI Pipeline"
@@ -42,4 +42,4 @@ stages:
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           # Invoke the Python building and publishing a training pipeline
           python -m ml_service.pipelines.train_evaluate_register_model_in_aml_workspace
-      displayName: 'Publish Azure Machine Learning Pipeline'
+      displayName: 'Publish AML Pipeline'
