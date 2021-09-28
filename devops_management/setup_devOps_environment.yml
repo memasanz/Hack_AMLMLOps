@@ -24,7 +24,7 @@ steps:
   
 
 # Dev
-- bash: az pipelines variable-group create --name vgroup-aml-devops-dev --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
+- bash: az pipelines variable-group create --name vgroup-aml-devops-dev --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos --variables DEV_WORKSPACE_SVC_CONNECTION=mm-aml-dev-connection
   displayName: 'Set Variable Group for dev'
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
@@ -41,7 +41,7 @@ steps:
   displayName: 'List variables in vgroup-aml-devops-dev variable group'
   
 # QA
-- bash: az pipelines variable-group create --name vgroup-aml-devops-qa --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
+- bash: az pipelines variable-group create --name vgroup-aml-devops-qa --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos --variables DEV_WORKSPACE_SVC_CONNECTION=mm-aml-qa-connection
   displayName: 'Set Variable Group for qa'
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
@@ -58,7 +58,7 @@ steps:
   displayName: 'List variables in vgroup-aml-devops-qa variable group'
   
  #Prod
-- bash: az pipelines variable-group create --name vgroup-aml-devops-prod --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos
+- bash: az pipelines variable-group create --name vgroup-aml-devops-prod --org https://dev.azure.com/memasanz/ --project=MeganMasanzRepos --variables DEV_WORKSPACE_SVC_CONNECTION=mm-aml-prod-connection
   displayName: 'Set Variable Group for prod'
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
