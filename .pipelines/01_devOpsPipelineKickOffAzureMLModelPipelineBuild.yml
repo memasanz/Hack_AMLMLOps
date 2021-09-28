@@ -24,7 +24,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: 'Build Training Pipeline in dev'
+- stage: 'Build_Training_Pipeline_in_dev'
   displayName: 'Build Model in dev'
   jobs:
   - job: "Model_CI_Pipeline"

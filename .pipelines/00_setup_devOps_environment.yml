@@ -3,11 +3,6 @@ variables:
 - name: qaVariableGroupId
 - name: prodVariableGroupId
 
-pr: none
-trigger:
-  branches:
-    include:
-    - master
     
 steps:
 # Specify python version if you have side-by-side versions
