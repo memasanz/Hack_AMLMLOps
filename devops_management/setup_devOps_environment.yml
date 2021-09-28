@@ -1,0 +1,28 @@
+steps:
+# Specify python version if you have side-by-side versions
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    architecture: 'x64'
+
+# Update pip to latest
+- bash: python -m pip install --upgrade pip
+  displayName: 'Upgrade pip'
+
+# Update to latest Azure CLI version, min version required for Azure DevOps is 2.10.1
+- bash: pip install --pre azure-cli --extra-index-url https://azurecliprod.blob.core.windows.net/edge
+  displayName: 'Upgrade Azure CLI'
+
+# Install Azure DevOps extension
+- bash: az extension add -n azure-devops
+  displayName: 'Install Azure DevOps extension'
+  
+
+  
+- bash: az pipelines variable-group create --name aml-devops-dev --variables LOCATION=eastus2 RESOURCE_GROUP=mm-aml-devops-dev-rg WORKSPACE_NAME=mm-aml-devops-dev WORKSPACE_SVC_CONNECTION=mm-aml-dev-connection
+  displayName: 'Set Variable Group for dev'
+  
+  
+- bash: variable_list = az pipelines variable-group variable list --group-name aml-devops-dev --query 'id' -o  json
+  displayName: 'List variables in aml-devops-dev variable group'
+  
