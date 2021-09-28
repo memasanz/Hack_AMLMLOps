@@ -42,11 +42,21 @@ Inside devOps – let’s create a service connection.
 
 ![Text Description automatically generated](media/8cdfa9593c43aea659e087d113bd156f.png)
 
+Text Description automatically generated
+
 ![](media/65bdde3205c3f571919978a377067bdf.png)
 
 ![A picture containing Teams Description automatically generated](media/750354939ed5c1f12a6afdd475607528.png)
 
+A picture containing Teams Description automatically generated
+
 There should be 3 Service Connections. 1 for dev, one for qa, and one for prod.
+
+We will be creating variable groups as part of the devOps pipeline
+configuration. You will need to add the Build service as a library
+administrator.
+
+![Graphical user interface, text, application, email Description automatically generated](media/fd4cbdaae1bf7487cdf7174d8f29c52a.png)
 
 We will leverage a compute instance in the AML Workspace to generate yml files
 to:
