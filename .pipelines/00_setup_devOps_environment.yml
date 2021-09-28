@@ -3,6 +3,11 @@ variables:
 - name: qaVariableGroupId
 - name: prodVariableGroupId
 
+pr: none
+trigger:
+  branches:
+    include:
+    - setup
     
 steps:
 # Specify python version if you have side-by-side versions
