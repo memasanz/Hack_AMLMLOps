@@ -93,4 +93,4 @@ stages:
     container: mlops
     timeoutInMinutes: 0
     steps:
-    - template: publish-model-artifact-template.yml
+    - template: 01a_publish-model-artifact-template.yml
